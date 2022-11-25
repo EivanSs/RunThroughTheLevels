@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9abb59a5710c38646a5b3b9ce225d4bb, type: 3}
+  m_Name: StoreSettings
+  m_EditorClassIdentifier: 
+  crystalsLots:
+  - value: 120
+    image: {fileID: 21300000, guid: 2acc0c054b4281049a1c564d159fb68a, type: 3}
+    price: 1.19
+  - value: 240
+    image: {fileID: 21300000, guid: 8b4f12bdb270d9a4ab2c140f66265fcc, type: 3}
+    price: 1.89
+  - value: 350
+    image: {fileID: 21300000, guid: 4d92fa06304c7404bb83c22d40afd001, type: 3}
+    price: 2.24
+  - value: 350
+    image: {fileID: 21300000, guid: 4d92fa06304c7404bb83c22d40afd001, type: 3}
+    price: 2.24

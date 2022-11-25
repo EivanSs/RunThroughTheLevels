@@ -1,0 +1,97 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb417c6025526fa478a2d7e9908c1b03, type: 3}
+  m_Name: WeaponsSettingsList
+  m_EditorClassIdentifier: 
+  pistolSettingsList: {fileID: 11400000, guid: fbb4815a468ba624b8727704d24845fb, type: 2}
+  _weaponSettings:
+  - name: Weapon 1
+    description: Description A
+    level: 0
+    weaponType: 0
+    purchaseSettings:
+      moneys: 1500
+      crystals: 110
+      isPremiumItem: 0
+    guid: 663
+  - name: Weapon 2
+    description: Description B
+    level: 0
+    weaponType: 0
+    purchaseSettings:
+      moneys: 0
+      crystals: 35
+      isPremiumItem: 0
+    guid: 678
+  - name: Weapon 2.1
+    description: Description B
+    level: 0
+    weaponType: 0
+    purchaseSettings:
+      moneys: 10000
+      crystals: 350
+      isPremiumItem: 0
+    guid: 124134
+  - name: Weapon 3
+    description: Description C
+    level: 0
+    weaponType: 0
+    purchaseSettings:
+      moneys: 5000
+      crystals: 35
+      isPremiumItem: 1
+    guid: 396
+  - name: Weapon 4
+    description: Description D
+    level: 0
+    weaponType: 0
+    purchaseSettings:
+      moneys: 5000
+      crystals: 35
+      isPremiumItem: 1
+    guid: 785
+  - name: Weapon 5
+    description: Description D
+    level: 1
+    weaponType: 0
+    purchaseSettings:
+      moneys: 5000
+      crystals: 35
+      isPremiumItem: 1
+    guid: 124134
+  - name: Weapon 6
+    description: Description D
+    level: 1
+    weaponType: 0
+    purchaseSettings:
+      moneys: 5000
+      crystals: 35
+      isPremiumItem: 0
+    guid: 45645473
+  - name: Weapon 7
+    description: Description D
+    level: 1
+    weaponType: 0
+    purchaseSettings:
+      moneys: 5000
+      crystals: 35
+      isPremiumItem: 0
+    guid: 2313235232
+  - name: Weapon 8
+    description: Description D
+    level: 1
+    weaponType: 0
+    purchaseSettings:
+      moneys: 5000
+      crystals: 35
+      isPremiumItem: 1
+    guid: 76867844

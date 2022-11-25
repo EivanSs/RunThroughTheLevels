@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0094f496c0b5bcb498ba7aa8236ea08d, type: 3}
+  m_Name: PistolSettings
+  m_EditorClassIdentifier: 
+  _pistolSettings:
+  - pistolName: 1
+    pistolGuid: 323
+    damage: 55
+    accuracy: 55
+    rateOfFire: 0.1
+    shotSound: {fileID: 0}
+  - pistolName: 2
+    pistolGuid: 678
+    damage: 12
+    accuracy: 34
+    rateOfFire: 0.2
+    shotSound: {fileID: 0}
+  - pistolName: 3
+    pistolGuid: 396
+    damage: 124
+    accuracy: 88
+    rateOfFire: 0.6
+    shotSound: {fileID: 0}
+  - pistolName: 4
+    pistolGuid: 785
+    damage: 77
+    accuracy: 51
+    rateOfFire: 0.3
+    shotSound: {fileID: 0}

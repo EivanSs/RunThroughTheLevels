@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae86313287cb4d6449b467981dd7913d, type: 3}
+  m_Name: ScreensSettings
+  m_EditorClassIdentifier: 
+  screensList:
+  - screen: {fileID: 7375321280813544079, guid: ffdff2a46900c3746beab70ab1f49bf2, type: 3}
+    screenName: 0
+  - screen: {fileID: 3307000802727184477, guid: f3b54308bded5c3408c418345cc6caca, type: 3}
+    screenName: 1
+  - screen: {fileID: 8557812283353610803, guid: aed9437984583a54cb84b6ce073be516, type: 3}
+    screenName: 3
+  - screen: {fileID: 282619881089070360, guid: 3ce0bf7d40cdfa54196b92c5383de32d, type: 3}
+    screenName: 2
