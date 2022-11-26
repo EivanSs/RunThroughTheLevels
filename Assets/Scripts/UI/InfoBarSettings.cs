@@ -1,9 +1,8 @@
 using System.Collections.Generic;
-using Settings;
 
 namespace UI
 {
-    public struct ShopInfoBarSettings
+    public struct InfoBarSettings
     {
         public bool withParameters;
         

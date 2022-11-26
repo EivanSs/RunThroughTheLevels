@@ -1,7 +1,5 @@
 using System.Collections.Generic;
 using Settings;
-using UI;
-using UI.Reusable;
 
 namespace UI
 {
@@ -15,7 +13,7 @@ namespace UI
 
         public PurchaseSettings PurchaseSettings();
 
-        public ShopInfoBarSettings ShopInfoBarSettings();
+        public InfoBarSettings InfoBarSettings();
 
         public ItemState GetItemState(int forLevel);
     }

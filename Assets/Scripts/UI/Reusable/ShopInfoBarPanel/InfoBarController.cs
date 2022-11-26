@@ -5,14 +5,15 @@ using System.Linq;
 using DG.Tweening;
 using UI.Controllers.Screens;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace UI.Reusable
 {
     public class InfoBarController : MonoBehaviour
     {
-        public RectTransform movableContent;
+        [SerializeField] private RectTransform _movableContent;
 
-        public List<InfoBarVariant> infoBarVariants;
+        [SerializeField] private List<InfoBarVariant> _infoBarVariants;
 
         private BaseScreen _barOwner;
 
@@ -31,22 +32,22 @@ namespace UI.Reusable
             if (_variantObject != null)
                 Destroy(_variantObject);
 
-            _variantObject = Instantiate(infoBarVariants
-                .First(v => v.barType == barType).gameObject, movableContent);
+            _variantObject = Instantiate(_infoBarVariants
+                .First(v => v.barType == barType).gameObject, _movableContent);
             
             setupVariantAction.Invoke(_variantObject);
         }
 
         public void Show()
         {
-            movableContent.anchoredPosition = new Vector2(0, -121);
+            _movableContent.anchoredPosition = new Vector2(0, -121);
 
-            movableContent.DOLocalMoveY(0, 0.5f);
+            _movableContent.DOLocalMoveY(0, 0.5f);
         }
 
         public void HideAndDestroy()
         {
-            movableContent.DOLocalMoveY(-121, 0.5f).onComplete += () =>
+            _movableContent.DOLocalMoveY(-121, 0.5f).onComplete += () =>
             {
                 Destroy(gameObject);
             };

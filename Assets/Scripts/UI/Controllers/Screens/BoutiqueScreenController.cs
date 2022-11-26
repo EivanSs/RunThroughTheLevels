@@ -3,8 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Managers;
-using UI.Controllers.Screens;
-using UI.Reusable;
 using UI.Reusable;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -14,15 +12,15 @@ namespace UI.Controllers.Screens
 {
     public class BoutiqueScreenController : BaseScreen
     {
-        public GameObject boutiqueItemPrefab;
+        [SerializeField] private GameObject _boutiqueItemPrefab;
         
-        public Button buttonBack;
+        [SerializeField] private Button _buttonBack;
         
-        public HorizontalButtonsBarController buttonsBar;
+        [SerializeField] private HorizontalButtonsBarController _buttonsBar;
 
-        public ShopItemsBarController shopItemsBarController;
+        [SerializeField] private ShopItemsBarController _shopItemsBarController;
 
-        private SelectableScrollRect _selectableScrollRect => shopItemsBarController.GetComponent<SelectableScrollRect>();
+        private SelectableScrollRect _selectableScrollRect => _shopItemsBarController.GetComponent<SelectableScrollRect>();
 
         public override bool enableInfoBar
         {
@@ -34,7 +32,7 @@ namespace UI.Controllers.Screens
         
         public void Start()
         {
-            buttonBack.onClick.AddListener(() =>
+            _buttonBack.onClick.AddListener(() =>
             {
                 ScreensManager.OpenScreen(ScreenName.MainScreen, ScreenTransitionType.MoveRight);
                 
@@ -47,8 +45,8 @@ namespace UI.Controllers.Screens
 
             buttons.Add(("Weapons", () =>
             {
-                shopItemsBarController.Setup(weaponObjects, 
-                    boutiqueItemPrefab, 
+                _shopItemsBarController.Setup(weaponObjects, 
+                    _boutiqueItemPrefab, 
                     (elementGameObject, elementObject) =>
                     {
                         var shopItemController = elementGameObject.GetComponent<BoutiqueItemController>();
@@ -71,8 +69,8 @@ namespace UI.Controllers.Screens
 
             buttons.Add(("Armor", () =>
             {
-                shopItemsBarController.Setup(armorObjects, 
-                    boutiqueItemPrefab, 
+                _shopItemsBarController.Setup(armorObjects, 
+                    _boutiqueItemPrefab, 
                     (elementGameObject, elementObject) =>
                     {
                         var shopItemController = elementGameObject.GetComponent<BoutiqueItemController>();
@@ -93,7 +91,7 @@ namespace UI.Controllers.Screens
 
             buttons.Add(("Ammunition", () => { }));
 
-            buttonsBar.Init(buttons, 0);
+            _buttonsBar.Init(buttons, 0);
         }
     }
 }

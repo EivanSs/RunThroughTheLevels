@@ -782,9 +782,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 220de0906e1ed0d458dc6c442af06e42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boutiqueButton: {fileID: 5872867566933124332}
-  storeButton: {fileID: 6818077434727941107}
-  playButton: {fileID: 1401080359063651744}
+  _boutiqueButton: {fileID: 5872867566933124332}
+  _storeButton: {fileID: 6818077434727941107}
+  _playButton: {fileID: 1401080359063651744}
 --- !u!1 &5674895333471426706
 GameObject:
   m_ObjectHideFlags: 0

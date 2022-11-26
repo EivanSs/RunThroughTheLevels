@@ -4,8 +4,6 @@ using System.Collections.Generic;
 using System.Linq;
 using Managers;
 using Settings;
-using UI.Controllers.Screens;
-using UI.Reusable;
 using UI.Reusable;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -15,15 +13,15 @@ namespace UI.Controllers.Screens
 {
     public class StoreScreenController : BaseScreen
     {
-        public GameObject storeItemPrefab;
+        [SerializeField] private GameObject _storeItemPrefab;
         
-        public Button buttonBack;
+        [SerializeField] private Button _buttonBack;
         
-        public HorizontalButtonsBarController buttonsBar;
+        [SerializeField] private HorizontalButtonsBarController _buttonsBar;
 
-        public ShopItemsBarController shopItemsBarController;
+        [SerializeField] private ShopItemsBarController _shopItemsBarController;
 
-        private SelectableScrollRect _selectableScrollRect => shopItemsBarController.GetComponent<SelectableScrollRect>();
+        private SelectableScrollRect _selectableScrollRect => _shopItemsBarController.GetComponent<SelectableScrollRect>();
 
         public override bool enableInfoBar
         {
@@ -35,7 +33,7 @@ namespace UI.Controllers.Screens
         
         public void Start()
         {
-            buttonBack.onClick.AddListener(() =>
+            _buttonBack.onClick.AddListener(() =>
             {
                 ScreensManager.OpenScreen(ScreenName.MainScreen, ScreenTransitionType.MoveUp);
                 
@@ -48,8 +46,8 @@ namespace UI.Controllers.Screens
 
             buttons.Add(("Crystals", () =>
             {
-                shopItemsBarController.Setup(crystalsLots, 
-                    storeItemPrefab, 
+                _shopItemsBarController.Setup(crystalsLots, 
+                    _storeItemPrefab, 
                     (elementGameObject, elementObject) =>
                     {
                         var storeItemController = elementGameObject.GetComponent<StoreItemController>();
@@ -78,7 +76,7 @@ namespace UI.Controllers.Screens
 
             buttons.Add(("No Ads", () => { }));
 
-            buttonsBar.Init(buttons, 0);
+            _buttonsBar.Init(buttons, 0);
         }
     }
 }

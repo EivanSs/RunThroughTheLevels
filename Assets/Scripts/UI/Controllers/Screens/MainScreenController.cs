@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Managers;
-using Settings;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
@@ -12,23 +11,23 @@ namespace UI.Controllers.Screens
 {
     public class MainScreenController : BaseScreen
     {
-        public Button boutiqueButton;
-        public Button storeButton;
-        public Button playButton;
+        [SerializeField] private Button _boutiqueButton;
+        [SerializeField] private Button _storeButton;
+        [SerializeField] private Button _playButton;
 
         public void Awake()
         {
-            boutiqueButton.onClick.AddListener(() =>
+            _boutiqueButton.onClick.AddListener(() =>
             {
                 ScreensManager.OpenScreen(ScreenName.BoutiqueScreen, ScreenTransitionType.MoveLeft);
             });
             
-            storeButton.onClick.AddListener(() =>
+            _storeButton.onClick.AddListener(() =>
             {
                 ScreensManager.OpenScreen(ScreenName.StoreScreen, ScreenTransitionType.MoveDown);
             });
         
-            playButton.onClick.AddListener(() =>
+            _playButton.onClick.AddListener(() =>
             {
                 SceneManager.LoadScene(2);
             });

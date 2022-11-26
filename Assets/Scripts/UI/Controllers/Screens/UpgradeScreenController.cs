@@ -3,9 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Managers;
-using Settings;
-using UI.Controllers.Screens;
-using UI.Reusable;
 using UI.Reusable;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -15,7 +12,7 @@ namespace UI.Controllers.Screens
 {
     public class UpgradeScreenController : BaseScreen
     {
-        public Button buttonBack;
+        [SerializeField] private Button _buttonBack;
 
         public override bool enableInfoBar
         {
@@ -27,7 +24,7 @@ namespace UI.Controllers.Screens
         
         public void Start()
         {
-            buttonBack.onClick.AddListener(() =>
+            _buttonBack.onClick.AddListener(() =>
             {
                 ScreensManager.OpenScreen(ScreenName.BoutiqueScreen, ScreenTransitionType.MoveDown);
                 

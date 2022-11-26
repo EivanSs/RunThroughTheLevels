@@ -4,29 +4,30 @@ using System.Collections.Generic;
 using System.Linq;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 namespace UI.Reusable
 {
     public class BoutiqueParameterController : MonoBehaviour
     {
-        public TMP_Text textValue;
+        [SerializeField] private TMP_Text _textValue;
 
-        public Image Icon;
+        [SerializeField] private Image _icon;
 
-        public RectTransform valueBarContainer;
+        [SerializeField] private RectTransform _valueBarContainer;
 
-        public RectTransform valueBar;
+        [SerializeField] private RectTransform _valueBar;
 
-        public List<ParameterImage> parameterImages;
+        [SerializeField] private List<ParameterImage> _parameterImages;
 
         public void Setup(InfoBarParameterType parameterType, string textValue, float normalizedValue)
         {
-            Icon.sprite = parameterImages.FirstOrDefault(v => v.parameterType == parameterType).image;
+            _icon.sprite = _parameterImages.FirstOrDefault(v => v.parameterType == parameterType).image;
 
-            this.textValue.text = textValue;
+            _textValue.text = textValue;
 
-            valueBar.sizeDelta = new Vector2(valueBarContainer.rect.width * normalizedValue, valueBar.sizeDelta.y);
+            _valueBar.sizeDelta = new Vector2(_valueBarContainer.rect.width * normalizedValue, _valueBar.sizeDelta.y);
         }
         
         [Serializable]

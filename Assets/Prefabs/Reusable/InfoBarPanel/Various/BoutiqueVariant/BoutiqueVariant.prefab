@@ -1309,8 +1309,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61f06a9d1addaf14783a8528875397ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  crystalsValue: {fileID: 822676811765703791}
-  itemState: 1
+  _crystalsValue: {fileID: 822676811765703791}
+  _itemState: 1
 --- !u!1 &822676812523827887
 GameObject:
   m_ObjectHideFlags: 0
@@ -1922,8 +1922,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61f06a9d1addaf14783a8528875397ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  crystalsValue: {fileID: 0}
-  itemState: 4
+  _crystalsValue: {fileID: 0}
+  _itemState: 4
 --- !u!1 &822676813036634925
 GameObject:
   m_ObjectHideFlags: 0
@@ -2110,8 +2110,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61f06a9d1addaf14783a8528875397ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  crystalsValue: {fileID: 822676812621743371}
-  itemState: 2
+  _crystalsValue: {fileID: 822676812621743371}
+  _itemState: 2
 --- !u!1 &822676813122177989
 GameObject:
   m_ObjectHideFlags: 0
@@ -2239,8 +2239,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61f06a9d1addaf14783a8528875397ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  crystalsValue: {fileID: 0}
-  itemState: 0
+  _crystalsValue: {fileID: 0}
+  _itemState: 0
 --- !u!1 &822676813274673355
 GameObject:
   m_ObjectHideFlags: 0
@@ -2367,8 +2367,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61f06a9d1addaf14783a8528875397ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  crystalsValue: {fileID: 822676811765703791}
-  itemState: 3
+  _crystalsValue: {fileID: 0}
+  _itemState: 3
 --- !u!1 &822676813466603294
 GameObject:
   m_ObjectHideFlags: 0
@@ -2564,20 +2564,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a18d9f3e802c1dc4cb5afae0107646c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parameterPrefab: {fileID: 1703166239549260412, guid: 7cb76cf342663474e8d8419d767c1980, type: 3}
-  title: {fileID: 3096035631276292814}
-  parametersBar: {fileID: 3096035630356377885}
+  _parameterPrefab: {fileID: 1703166239549260412, guid: 7cb76cf342663474e8d8419d767c1980, type: 3}
+  _title: {fileID: 3096035631276292814}
+  _parametersBar: {fileID: 3096035630356377885}
   _barStates:
   - {fileID: 822676812416473805}
   - {fileID: 822676813112412884}
   - {fileID: 822676813127911570}
   - {fileID: 822676813381269489}
   - {fileID: 822676813022759130}
-  buyButton: {fileID: 822676811764414338}
-  buyForCrystalsButton: {fileID: 822676812289456629}
-  buyForCrystalsButton2: {fileID: 822676811837974564}
-  use: {fileID: 822676812572366472}
-  upgrade: {fileID: 822676811584892071}
+  _buyButton: {fileID: 822676811764414338}
+  _buyForCrystalsButton: {fileID: 822676812289456629}
+  _buyForCrystalsButton2: {fileID: 822676811837974564}
+  _use: {fileID: 822676812572366472}
+  _upgrade: {fileID: 822676811584892071}
 --- !u!1 &3096035631276292812
 GameObject:
   m_ObjectHideFlags: 0

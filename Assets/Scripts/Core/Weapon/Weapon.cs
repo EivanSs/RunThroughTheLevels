@@ -1,90 +1,89 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using Settings;
 using UI;
-using Unity.Mathematics;
-using UnityEngine;
 
 namespace Core
 {
     public class Weapon : IBoutiqueElement
     {
-        public readonly string weaponGuid;
+        private readonly string _weaponGuid;
 
         public Weapon(string weaponGuid)
         {
-            this.weaponGuid = weaponGuid;
+            _weaponGuid = weaponGuid;
         }
         
         public string GetTitle()
         {
-            var weaponsSettings = SettingsList.Get<WeaponsSettingsList>().GetSettings(weaponGuid);
+            var weaponsSettings = SettingsList.Get<WeaponsSettingsList>().GetSettings(_weaponGuid);
 
             return weaponsSettings.name;
         }
 
         public string GetDescription()
         {
-            var weaponsSettings = SettingsList.Get<WeaponsSettingsList>().GetSettings(weaponGuid);
+            var weaponsSettings = SettingsList.Get<WeaponsSettingsList>().GetSettings(_weaponGuid);
 
             return weaponsSettings.description;
         }
         
         public int GetLevel()
         {
-            var weaponsSettings = SettingsList.Get<WeaponsSettingsList>().GetSettings(weaponGuid);
+            var weaponsSettings = SettingsList.Get<WeaponsSettingsList>().GetSettings(_weaponGuid);
 
             return weaponsSettings.level;
         }
 
         public PurchaseSettings PurchaseSettings()
         {
-            var weaponsSettings = SettingsList.Get<WeaponsSettingsList>().GetSettings(weaponGuid);
+            var weaponsSettings = SettingsList.Get<WeaponsSettingsList>().GetSettings(_weaponGuid);
 
             return weaponsSettings.purchaseSettings;
         }
 
-        public ShopInfoBarSettings ShopInfoBarSettings()
+        public InfoBarSettings InfoBarSettings()
         {
-            var parameters = new List<InfoBarParameter>();
+            List<InfoBarParameter> parameters;
             
-            var weaponsSettings = SettingsList.Get<WeaponsSettingsList>().GetSettings(weaponGuid);
+            var weaponsSettings = SettingsList.Get<WeaponsSettingsList>().GetSettings(_weaponGuid);
 
             switch (weaponsSettings.weaponType)
             {
                 case WeaponType.Pistol:
-                    var pistolSettings = SettingsList.Get<WeaponsSettingsList>().pistolSettingsList.GetSettings(weaponGuid);
+                    var pistolSettings = SettingsList.Get<WeaponsSettingsList>().pistolSettingsList.GetSettings(_weaponGuid);
 
-                    var damageParameter = new InfoBarParameter();
+                    var damageParameter = new InfoBarParameter
+                    {
+                        parameterType = InfoBarParameterType.Damage,
+                        normalizedValue = pistolSettings.damage / 
+                                          SettingsList.Get<WeaponsSettingsList>().GetMaxDamageFromLevel(weaponsSettings.level),
+                        textValue = pistolSettings.damage.ToString()
+                    };
                     
-                    damageParameter.parameterType = InfoBarParameterType.Damage;
-                    damageParameter.normalizedValue = pistolSettings.damage / 
-                                                      SettingsList.Get<WeaponsSettingsList>().GetMaxDamageFromLevel(weaponsSettings.level);
-                    damageParameter.textValue = pistolSettings.damage.ToString();
+                    var accuracyParameter = new InfoBarParameter
+                    {
+                        parameterType = InfoBarParameterType.Accuracy,
+                        normalizedValue = pistolSettings.accuracy / 100,
+                        textValue = $"{pistolSettings.accuracy}%"
+                    };
                     
-                    parameters.Add(damageParameter);
+                    var rateOfFireParameter = new InfoBarParameter
+                    {
+                        parameterType = InfoBarParameterType.RateOfFire,
+                        normalizedValue = 1 - 1 / pistolSettings.rateOfFire,
+                        textValue = $"{pistolSettings.rateOfFire}S"
+                    };
+
+                    parameters = new List<InfoBarParameter> { damageParameter, accuracyParameter, rateOfFireParameter };
                     
-                    var accuracyParameter = new InfoBarParameter();
+                    break;
+                default:
+                    parameters = null;
                     
-                    accuracyParameter.parameterType = InfoBarParameterType.Accuracy;
-                    accuracyParameter.normalizedValue = pistolSettings.accuracy / 100;
-                    accuracyParameter.textValue = $"{pistolSettings.accuracy}%";
-                    
-                    parameters.Add(accuracyParameter);
-                    
-                    var rateOfFireParameter = new InfoBarParameter();
-                    
-                    rateOfFireParameter.parameterType = InfoBarParameterType.RateOfFire;
-                    rateOfFireParameter.normalizedValue = 1 - 1 / pistolSettings.rateOfFire;
-                    rateOfFireParameter.textValue = $"{pistolSettings.rateOfFire}S";
-                    
-                    parameters.Add(rateOfFireParameter);
                     break;
             }
 
-            var shopInfoBarSettings = new ShopInfoBarSettings
+            var shopInfoBarSettings = new InfoBarSettings
             {
                 withParameters = true,
                 parameters = parameters
@@ -95,29 +94,7 @@ namespace Core
         
         public ItemState GetItemState(int forLevel)
         {
-            ItemState itemState;
-            
-            bool onlyCrystals = PurchaseSettings().moneys == 0;
-
-            bool blockedBuyLevel = GetLevel() > forLevel;
-
-            bool purchased = weaponGuid == "663";;
-
-            itemState = ItemState.Buy;
-
-            if (PurchaseSettings().isPremiumItem)
-                itemState = ItemState.BlockedForPremium;
-            
-            if (blockedBuyLevel)
-                itemState = ItemState.BlockedBuyLevel;
-            
-            if (purchased)
-                itemState = ItemState.Purchased;
-
-            if (itemState == ItemState.Buy && onlyCrystals)
-                itemState = ItemState.BuyForCrystals;
-
-            return itemState;
+            return PurchaseUtils.GetDefaultItemState(GetLevel(), PurchaseSettings(), forLevel);
         }
     }
 

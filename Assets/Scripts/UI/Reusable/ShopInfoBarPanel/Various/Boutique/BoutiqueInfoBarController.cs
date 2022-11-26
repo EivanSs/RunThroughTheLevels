@@ -4,25 +4,26 @@ using System.Collections.Generic;
 using Managers;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 namespace UI.Reusable
 {
     public class BoutiqueInfoBarController : MonoBehaviour
     {
-        public BoutiqueParameterController parameterPrefab;
+        [SerializeField] private BoutiqueParameterController _parameterPrefab;
     
-        public TMP_Text title;
+        [SerializeField] private TMP_Text _title;
 
-        public RectTransform parametersBar;
+        [SerializeField] private RectTransform _parametersBar;
 
-        public List<BoutiaueInfoBarStateController> _barStates;
+        [SerializeField] private List<BoutiqueInfoBarStateController> _barStates;
 
-        public Button buyButton;
-        public Button buyForCrystalsButton;
-        public Button buyForCrystalsButton2;
-        public Button use;
-        public Button upgrade;
+        [SerializeField] private Button _buyButton;
+        [SerializeField] private Button _buyForCrystalsButton;
+        [SerializeField] private Button _buyForCrystalsButton2;
+        [SerializeField] private Button _use;
+        [SerializeField] private Button _upgrade;
 
         private IBoutiqueElement _boutiqueElement;
 
@@ -30,28 +31,28 @@ namespace UI.Reusable
 
         private void Awake()
         {
-            buyButton.onClick.AddListener(Buy);
+            _buyButton.onClick.AddListener(Buy);
             
-            buyForCrystalsButton.onClick.AddListener(BuyForCrystals);
+            _buyForCrystalsButton.onClick.AddListener(BuyForCrystals);
             
-            buyForCrystalsButton2.onClick.AddListener(BuyForCrystals);
+            _buyForCrystalsButton2.onClick.AddListener(BuyForCrystals);
             
-            use.onClick.AddListener(Use);
+            _use.onClick.AddListener(Use);
             
-            upgrade.onClick.AddListener(Upgrade);
+            _upgrade.onClick.AddListener(Upgrade);
         }
 
         public void Init(IBoutiqueElement boutiqueElement)
         {
-            title.text = $"{boutiqueElement.GetTitle()}:";
+            _title.text = $"{boutiqueElement.GetTitle()}:";
 
-            var elementInfoBarSettings = boutiqueElement.ShopInfoBarSettings();
+            var elementInfoBarSettings = boutiqueElement.InfoBarSettings();
 
             if (elementInfoBarSettings.withParameters)
             {
                 foreach (var parameter in elementInfoBarSettings.parameters)
                 {
-                    var parameterInstance = Instantiate(parameterPrefab, parametersBar);
+                    var parameterInstance = Instantiate(_parameterPrefab, _parametersBar);
                     
                     parameterInstance.Setup(parameter.parameterType, parameter.textValue, parameter.normalizedValue);
                 }

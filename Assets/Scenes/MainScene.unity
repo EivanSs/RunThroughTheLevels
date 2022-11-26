@@ -388,8 +388,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b97c20761b8cd074f96ceb3d6b230011, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvasTransform: {fileID: 775695474}
-  screensParent: {fileID: 110679874}
+  _canvasTransform: {fileID: 775695474}
+  _screensParent: {fileID: 110679874}
 --- !u!114 &775695477
 MonoBehaviour:
   m_ObjectHideFlags: 0

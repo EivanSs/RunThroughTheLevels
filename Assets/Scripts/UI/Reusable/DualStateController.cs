@@ -8,19 +8,19 @@ namespace UI.Reusable
 {
     public class DualStateController : MonoBehaviour
     {
-        public GameObject activeState;
-        public GameObject disabledState;
+        [SerializeField] private GameObject _activeState;
+        [SerializeField] private GameObject _disabledState;
 
-        public void Active()
+        public void Activate()
         {
-            activeState.SetActive(true);
-            disabledState.SetActive(false);
+            _activeState.SetActive(true);
+            _disabledState.SetActive(false);
         }
 
-        public void Disable()
+        public void Deactivate()
         {
-            activeState.SetActive(false);
-            disabledState.SetActive(true);
+            _activeState.SetActive(false);
+            _disabledState.SetActive(true);
         }
     }
 }

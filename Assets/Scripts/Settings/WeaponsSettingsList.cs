@@ -3,8 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Core;
-using Managers;
-using Settings;
 using UnityEngine;
 using UnityEngine.Serialization;
 

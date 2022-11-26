@@ -501,11 +501,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e7096878b30f9242917e6df20e8fd79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textValue: {fileID: 1703166239221434487}
-  Icon: {fileID: 1703166239228008177}
-  valueBarContainer: {fileID: 1703166238923762809}
-  valueBar: {fileID: 1703166238747604219}
-  parameterImages:
+  _textValue: {fileID: 1703166239221434487}
+  _icon: {fileID: 1703166239228008177}
+  _valueBarContainer: {fileID: 1703166238923762809}
+  _valueBar: {fileID: 1703166238747604219}
+  _parameterImages:
   - image: {fileID: 21300000, guid: 615fa307ca4771747bb44cbf0fd2a5af, type: 3}
     parameterType: 0
   - image: {fileID: 21300000, guid: 019327fd6928ac7448de3012ca0cc226, type: 3}

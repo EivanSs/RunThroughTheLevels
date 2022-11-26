@@ -9,11 +9,11 @@ namespace UI.Reusable
 {
     public class HorizontalButtonsBarController : MonoBehaviour
     {
-        public GameObject buttonPrefab;
+        [SerializeField] private GameObject _buttonPrefab;
 
-        public GameObject scrollContainer;
+        [SerializeField] private GameObject _scrollContainer;
 
-        public ScrollRect containerScrollRect;
+        [SerializeField] private ScrollRect _containerScrollRect;
     
         private List<DualStateController> _buttonStates = new();
 
@@ -23,7 +23,7 @@ namespace UI.Reusable
             
             foreach (var buttonSetting in buttons)
             {
-                var buttonObject = Instantiate(buttonPrefab, scrollContainer.GetComponent<RectTransform>());
+                var buttonObject = Instantiate(_buttonPrefab, _scrollContainer.GetComponent<RectTransform>());
             
                 buttonObject.GetComponent<TextController>().SetText(buttonSetting.Item1);
             
@@ -31,35 +31,35 @@ namespace UI.Reusable
 
                 var buttonState = buttonObject.GetComponent<DualStateController>();
 
-                buttonObject.GetComponent<Button>().onClick.AddListener(OnButtonClick);
+                buttonObject.GetComponent<Button>().onClick.AddListener(ApplyButton);
 
                 if (buttons.IndexOf(buttonSetting) == defaultButtonIndex)
-                    OnButtonClick();
+                    ApplyButton();
 
-                void OnButtonClick()
+                void ApplyButton()
                 {
                     buttonSetting.Item2.Invoke();
                 
                     foreach (var buttonState in _buttonStates)
-                        buttonState.Disable();
+                        buttonState.Deactivate();
 
-                    buttonState.Active();
+                    buttonState.Activate();
                 }
             
                 _buttonStates.Add(buttonState);
             }
 
-            var sizeDeltaY = scrollContainer.GetComponent<RectTransform>().sizeDelta.y;
+            var sizeDeltaY = _scrollContainer.GetComponent<RectTransform>().sizeDelta.y;
 
-            var spacing = scrollContainer.GetComponent<HorizontalLayoutGroup>().spacing;
+            var spacing = _scrollContainer.GetComponent<HorizontalLayoutGroup>().spacing;
 
             float width = Math.Max((buttons.Count - 1) * spacing + mainButtonsWidth, 
-                containerScrollRect.GetComponent<RectTransform>().sizeDelta.x);
+                _containerScrollRect.GetComponent<RectTransform>().sizeDelta.x);
 
-            scrollContainer.GetComponent<RectTransform>().sizeDelta = 
+            _scrollContainer.GetComponent<RectTransform>().sizeDelta = 
                 new Vector2(width, sizeDeltaY);
 
-            containerScrollRect.horizontalNormalizedPosition = 0;
+            _containerScrollRect.horizontalNormalizedPosition = 0;
         }
     }
 }

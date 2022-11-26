@@ -8,11 +8,11 @@ namespace UI.Reusable
 {
     public class TextController : MonoBehaviour
     {
-        [FormerlySerializedAs("Text")] public TMP_Text text;
+        [SerializeField] private TMP_Text _text;
 
         public void SetText(string text)
         {
-            this.text.text = text;
+            _text.text = text;
         }
     }
 }

@@ -78,9 +78,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 284beec2a1ff6494193bca3c19fffb1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttonPrefab: {fileID: 2477173413642859817, guid: 824c903faed96434db055564a76512a0, type: 3}
-  scrollContainer: {fileID: 4623357531972459665}
-  containerScrollRect: {fileID: 7820004151272007823}
+  _buttonPrefab: {fileID: 2477173413642859817, guid: 824c903faed96434db055564a76512a0, type: 3}
+  _scrollContainer: {fileID: 4623357531972459665}
+  _containerScrollRect: {fileID: 7820004151272007823}
 --- !u!114 &7820004151272007823
 MonoBehaviour:
   m_ObjectHideFlags: 0

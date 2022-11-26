@@ -126,8 +126,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bab2d3312014e8439fc9ad3417abfb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movableContent: {fileID: 4661440735149406260}
-  infoBarVariants:
+  _movableContent: {fileID: 4661440735149406260}
+  _infoBarVariants:
   - barType: 0
     gameObject: {fileID: 3096035630771289819, guid: f9262443f2f14264387c25e0fcdc79dc, type: 3}
   - barType: 1

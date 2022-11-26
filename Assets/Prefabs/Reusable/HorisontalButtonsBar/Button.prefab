@@ -55,8 +55,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 732459af4788277489652e6ce1233777, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activeState: {fileID: 7685818522804680377}
-  disabledState: {fileID: 8602551026660269451}
+  _activeState: {fileID: 7685818522804680377}
+  _disabledState: {fileID: 8602551026660269451}
 --- !u!114 &9180955595776113902
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -69,7 +69,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aefa95826cb632b428bea1d99b0cbee8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text: {fileID: 2477173414109987835}
+  _text: {fileID: 2477173414109987835}
 --- !u!114 &-6398177347938105829
 MonoBehaviour:
   m_ObjectHideFlags: 0

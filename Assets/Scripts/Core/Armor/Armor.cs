@@ -1,25 +1,22 @@
-using System.Collections;
-using System.Collections.Generic;
 using Settings;
 using UI;
-using UnityEngine;
 
 namespace Core
 {
     public class Armor : IBoutiqueElement
     {
-        public string weaponGuid { get; }
+        private readonly string _armorGuid;
 
-        public Armor(string weaponGuid)
+        public Armor(string armorGuid)
         {
-            this.weaponGuid = weaponGuid;
+            _armorGuid = armorGuid;
         }
     
         public string GetTitle()
         {
             var armorSettings = SettingsList.Get<ArmorSettingsList>();
 
-            return armorSettings.GetSettings(weaponGuid).name;
+            return armorSettings.GetSettings(_armorGuid).name;
         }
 
         public string GetDescription()
@@ -31,19 +28,19 @@ namespace Core
         {
             var armorSettings = SettingsList.Get<ArmorSettingsList>();
 
-            return armorSettings.GetSettings(weaponGuid).level;
+            return armorSettings.GetSettings(_armorGuid).level;
         }
 
         public PurchaseSettings PurchaseSettings()
         {
             var armorSettings = SettingsList.Get<ArmorSettingsList>();
 
-            return armorSettings.GetSettings(weaponGuid).purchaseSettings;
+            return armorSettings.GetSettings(_armorGuid).purchaseSettings;
         }
     
-        public ShopInfoBarSettings ShopInfoBarSettings()
+        public InfoBarSettings InfoBarSettings()
         {
-            var shopInfoBarSettings = new ShopInfoBarSettings
+            var shopInfoBarSettings = new InfoBarSettings
             {
                 withParameters = false
             };
@@ -53,29 +50,7 @@ namespace Core
 
         public ItemState GetItemState(int forLevel)
         {
-            ItemState itemState;
-            
-            bool onlyCrystals = PurchaseSettings().moneys == 0;
-
-            bool blockedBuyLevel = GetLevel() > forLevel;
-
-            bool purchased = false;
-
-            itemState = ItemState.Buy;
-
-            if (PurchaseSettings().isPremiumItem)
-                itemState = ItemState.BlockedForPremium;
-            
-            if (blockedBuyLevel)
-                itemState = ItemState.BlockedBuyLevel;
-            
-            if (purchased)
-                itemState = ItemState.Purchased;
-
-            if (itemState == ItemState.Buy && onlyCrystals)
-                itemState = ItemState.BuyForCrystals;
-
-            return itemState;
+            return PurchaseUtils.GetDefaultItemState(GetLevel(), PurchaseSettings(), forLevel);
         }
     }
 
