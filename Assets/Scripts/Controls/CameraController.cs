@@ -16,11 +16,6 @@ namespace Controls
 
         [SerializeField] private float _cameraDistance = 10;
 
-        private void Start()
-        {
-            
-        }
-
         private void FixedUpdate()
         {
             float angle = 90 + _cameraAngle;

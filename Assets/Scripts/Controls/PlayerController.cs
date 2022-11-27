@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -8,6 +9,8 @@ namespace Controls
 {
     public class PlayerController : MonoBehaviour
     {
+        private const float maxVelocity = 11;
+        
         [SerializeField] private float _directionMultiplier = 1;
 
         [SerializeField] private float _directionClamp = 20;
@@ -21,12 +24,16 @@ namespace Controls
         private Rigidbody _rigidbody;
 
         private Vector2 _direction;
+
+        private PlayerAnimationsController _animationsController;
         
         private void Awake()
         {
             _joystick = FindObjectOfType<Joystick>();
 
             _rigidbody = GetComponent<Rigidbody>();
+
+            _animationsController = GetComponent<PlayerAnimationsController>();
         }
 
         private void FixedUpdate()
@@ -43,7 +50,14 @@ namespace Controls
             
             _direction /= _directionDel;
         }
-        
+
+        private void Update()
+        {
+            if (_rigidbody.velocity.magnitude < 0.2f)
+                _animationsController.Stay();
+            else
+                _animationsController.Run(_rigidbody.velocity.magnitude / maxVelocity);
+        }
     }
 }
 
