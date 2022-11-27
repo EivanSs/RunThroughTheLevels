@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -16,6 +17,8 @@ namespace Utils
 
             return 0;
         }
+
+        public static double DegToRad = Math.PI / 180;
     }
 }
 
