@@ -18,7 +18,7 @@ namespace Init
             
             QualitySettings.SetQualityLevel(3, true);
 
-            SceneManager.LoadScene(1);
+            SceneManager.LoadScene(2);
         }
     }
 }
