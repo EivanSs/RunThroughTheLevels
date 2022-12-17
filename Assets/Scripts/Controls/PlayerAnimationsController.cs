@@ -18,6 +18,6 @@ public class PlayerAnimationsController : MonoBehaviour
     {
         _playerAnimator.SetBool("Run", true);
 
-        _playerAnimator.speed = runSpeed;
+        _playerAnimator.speed = runSpeed * 2;
     }
 }
