@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levels:
   - level: 0
-    quad: {fileID: 7092641675234453087, guid: 0e3363631ea4a5740bb2105c6b7cda21, type: 3}
+    quad: {fileID: 4065263707312220303, guid: 0e3363631ea4a5740bb2105c6b7cda21, type: 3}
     presets:
     - name: Stone
       gameObject: {fileID: 2079029939645759475, guid: 850c234b6fad6c645b09b763d30337b1, type: 3}

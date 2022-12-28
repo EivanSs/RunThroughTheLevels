@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 131990312}
   - component: {fileID: 131990311}
   - component: {fileID: 131990310}
+  - component: {fileID: 131990314}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -224,6 +225,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &131990314
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 131990309}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1c1022f5f870c54b9a62bd42098088e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &194366776
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -777,6 +790,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc99a8eca80b0484fbbd39c36b293f98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _focusTransform: {fileID: 290066442}
 --- !u!1 &290066441
 GameObject:
   m_ObjectHideFlags: 0
@@ -1132,7 +1146,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _chaseObject: {fileID: 290066442}
   _cameraAngle: 17
-  _cameraDistance: 19
+  _cameraDistance: 16
 --- !u!1 &1235388431 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 51f5d593c4e996a408c9fc464319c62a, type: 3}
